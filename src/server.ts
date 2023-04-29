@@ -1,16 +1,4 @@
 import "dotenv/config";
-import express from "express";
+import { Express } from "./Express";
 
-const app = express();
-
-app.get("/", (req, res) => {
-  res.json({
-    message: "First API with TypeScript ",
-  });
-});
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log("[HTTP] Server is listening on port [::]:%s", PORT);
-});
+new Express().openServer(Number(process.env.PORT) || 3000);
